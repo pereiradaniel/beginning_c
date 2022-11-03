@@ -10,9 +10,14 @@ int main(int argc, char* argv[])
         num2;   // Declare a second int variable for user input.
     
     num = 777;  // Arithmetic assignment statement**.
+
+    // FOR DEMONSTRATION ONLY!!
+    // Uncomment these two lines to see what happens when you try to print a var that has not been initialized.
+    printf("If you try to print num2 before it has a value assigned, you will retrieve the last data that was stored at that memory address!\n");
+    printf("num: %d, num2: %d\n", num, num2);
     
     printf("Enter a number to assign to num2: ");
-    
+ 
     scanf(" %d", &num2);
     
     printf("Accessing int variable num: %d\n", num); // ***
