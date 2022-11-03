@@ -1,24 +1,62 @@
-==207== Memcheck, a memory error detector
-==207== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==207== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
-==207== Command: ./init
-==207==
-0
-1
-2
-3
-4
-5
-6
-7
-8
-9
-==207== 
-==207== HEAP SUMMARY:
-==207==     in use at exit: 0 bytes in 0 blocks
-==207==   total heap usage: 1 allocs, 1 frees, 1,024 bytes allocated
-==207==
-==207== All heap blocks were freed -- no leaks are possible
-==207==
-==207== For lists of detected and suppressed errors, rerun with: -s
-==207== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==309== Memcheck, a memory error detector
+==309== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==309== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
+==309== Command: ./init
+==309==
+Printing int num[] which has been initialized with data:
+        1, 2, 3, 4, 5, 6, 7, 8, 9, 10.
+
+Printing int num2[] which has been initialized with data:
+        1, 2, 3, 0, 0, 0, 0, 0, 0, 0.
+
+Printing int num3[] which has been initialized with data:
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0.
+
+Printing int arr[] which has not been initialized with data:
+==309== Conditional jump or move depends on uninitialised value(s)
+==309==    at 0x48D3AD8: __vfprintf_internal (vfprintf-internal.c:1687)
+==309==    by 0x48BDEBE: printf (printf.c:33)
+==309==    by 0x1093C0: display (in /mnt/c/Users/perei/source/repos/beginning_c/ch2/init)
+==309==    by 0x1092F1: main (in /mnt/c/Users/perei/source/repos/beginning_c/ch2/init)
+==309==
+==309== Use of uninitialised value of size 8
+==309==    at 0x48B781B: _itoa_word (_itoa.c:179)
+==309==    by 0x48D36F4: __vfprintf_internal (vfprintf-internal.c:1687)
+==309==    by 0x48BDEBE: printf (printf.c:33)
+==309==    by 0x1093C0: display (in /mnt/c/Users/perei/source/repos/beginning_c/ch2/init)
+==309==    by 0x1092F1: main (in /mnt/c/Users/perei/source/repos/beginning_c/ch2/init)
+==309==
+==309== Conditional jump or move depends on uninitialised value(s)
+==309==    at 0x48B782D: _itoa_word (_itoa.c:179)
+==309==    by 0x48D36F4: __vfprintf_internal (vfprintf-internal.c:1687)
+==309==    by 0x48BDEBE: printf (printf.c:33)
+==309==    by 0x1093C0: display (in /mnt/c/Users/perei/source/repos/beginning_c/ch2/init)
+==309==    by 0x1092F1: main (in /mnt/c/Users/perei/source/repos/beginning_c/ch2/init)
+==309==
+==309== Conditional jump or move depends on uninitialised value(s)
+==309==    at 0x48D43A8: __vfprintf_internal (vfprintf-internal.c:1687)
+==309==    by 0x48BDEBE: printf (printf.c:33)
+==309==    by 0x1093C0: display (in /mnt/c/Users/perei/source/repos/beginning_c/ch2/init)
+==309==    by 0x1092F1: main (in /mnt/c/Users/perei/source/repos/beginning_c/ch2/init)
+==309==
+==309== Conditional jump or move depends on uninitialised value(s)
+==309==    at 0x48D386E: __vfprintf_internal (vfprintf-internal.c:1687)
+==309==    by 0x48BDEBE: printf (printf.c:33)
+==309==    by 0x1093C0: display (in /mnt/c/Users/perei/source/repos/beginning_c/ch2/init)
+==309==    by 0x1092F1: main (in /mnt/c/Users/perei/source/repos/beginning_c/ch2/init)
+==309==
+        77897672, 0, 1086480, 0, 0, 0, 1085600, 0, -16776768, 31.
+
+Printing int arr[] after initialization:
+        10, 9, 8, 7, 6, 5, 4, 3, 2, 1.
+
+==309== 
+==309== HEAP SUMMARY:
+==309==     in use at exit: 0 bytes in 0 blocks
+==309==   total heap usage: 1 allocs, 1 frees, 1,024 bytes allocated
+==309==
+==309== All heap blocks were freed -- no leaks are possible
+==309==
+==309== Use --track-origins=yes to see where uninitialised values come from
+==309== For lists of detected and suppressed errors, rerun with: -s
+==309== ERROR SUMMARY: 104 errors from 5 contexts (suppressed: 0 from 0)
