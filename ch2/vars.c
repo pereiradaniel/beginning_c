@@ -1,11 +1,20 @@
+// vars.c
+// ------
+
+// Demonstrate and explain briefly the simple usage of variables.
+
 #include <stdio.h>
 int main(int argc, char* argv[])
 {
     int num;    // // Variable declaration, also a definition*.
     int num2;   // Declare a second int variable for user input.
+    
     num = 777;  // Arithmetic assignment statement**.
+    
     printf("Enter a number to assign to num2: ");
+    
     scanf(" %d", &num2);
+    
     printf("Accessing int variable num: %d\n", num); // ***
     printf("Accessing int variable num2: %d\n", num2);
 
