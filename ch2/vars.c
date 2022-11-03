@@ -1,7 +1,6 @@
 // vars.c
 // Daniele Grech Pereira, 02 November 2022
 
-
 // Demonstrate and explain briefly the simple usage of variables.
 
 #include <stdio.h>
