@@ -7,8 +7,8 @@
 #include <stdio.h>
 int main(int argc, char* argv[])
 {
-    int num;    // // Variable declaration, also a definition*.
-    int num2;   // Declare a second int variable for user input.
+    int num,    // // Variable declaration, also a definition*.
+        num2;   // Declare a second int variable for user input.
     
     num = 777;  // Arithmetic assignment statement**.
     
