@@ -1,0 +1,24 @@
+INTEGER TYPE, MIN, MAX.
+-----------------------
+char, -128, 127
+unsigned char, NA, 255
+short, -32768, 32767
+unsigned short,NA,65535
+int, -2147483648, 2147483647
+unsigned int, NA, 4294967295
+long, -9223372036854775808, 9223372036854775807
+unsigned long, NA, 18446744073709551615
+long long, -9223372036854775808, 9223372036854775807
+unsigned long long, NA, 18446744073709551615
+
+FLOATING POINT TYPE, MIN, MAX.
+------------------------------
+Float MIN: 1.175e-38
+Float MAX: 3.403e+38
+Double MIN: 2.225e-308
+Double MAX: 1.798e+308
+Long Double MIN: 0.000e+00
+Long Double MAX: 1.190e+4932
+Number of decimal digits precision of float: 6
+Number of decimal digits precision of double: 15
+Number of decimal digits precision of long double: 18
