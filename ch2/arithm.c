@@ -8,9 +8,7 @@ int main (int argc, char* argv[])
 {
 
     // Declare and initialize vars:
-    // int     add1=0, add2=0, mult1=0, mult2=0, div1=0, div2=0;
     int add[2] = {0}, mult[2] = {0}, div[2] = {0};
-    // double  div3=0, div4=0;
     double div2[2] = {0};
 
     printf("All vars have been declared and initialized:\n");
