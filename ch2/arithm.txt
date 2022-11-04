@@ -1,42 +1,42 @@
-==364== Memcheck, a memory error detector
-==364== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==364== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
-==364== Command: ./arithm
-==364==
+==94== Memcheck, a memory error detector
+==94== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.   
+==94== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
+==94== Command: ./arithm
+==94== 
 All vars have been declared and initialized:
 add1: 0, add2: 0, mult1: 0, mult2: 0, div1: 0, div2: 0, div3: 0.00, div4: 0.00.
-Enter first whole number to add:
+Enter first whole number to add: 
 1
 Enter second whole number to add: 
 2
 add1 + add2 = ?
 1 + 2 = 3
 Enter first whole number to multiply:
-4
+5
 Enter second whole number to multiply:
-6
-mult1 * mult2 = ?
-4 * 6 = 24
-Enter first whole number to divide:
-75
-Enter second whole number to divide:
 4
+mult1 * mult2 = ?
+5 * 4 = 20
+Enter first whole number to divide:
+55
+Enter second whole number to divide:
+5
 div1 / div2 = ?
-75 / 4 = 18
+55 / 5 = 11
 div1 % div2 = ?
-75 % 4 = 3
+55 % 5 = 0
 Enter first decimal number to divide:
-125.3
-Enter second decimal number to divide: 
-43.6
+105.5
+Enter second decimal number to divide:
+23.1
 div3 / div4 = ?
-125.30 / 125.30 = 2.87
-==364== 
-==364== HEAP SUMMARY:
-==364==     in use at exit: 0 bytes in 0 blocks
-==364==   total heap usage: 2 allocs, 2 frees, 2,048 bytes allocated
-==364==
-==364== All heap blocks were freed -- no leaks are possible
-==364==
-==364== For lists of detected and suppressed errors, rerun with: -s
-==364== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+105.50 / 105.50 = 4.57
+==94==
+==94== HEAP SUMMARY:
+==94==     in use at exit: 0 bytes in 0 blocks
+==94==   total heap usage: 2 allocs, 2 frees, 2,048 bytes allocated
+==94==
+==94== All heap blocks were freed -- no leaks are possible
+==94==
+==94== For lists of detected and suppressed errors, rerun with: -s
+==94== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
