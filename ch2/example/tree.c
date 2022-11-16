@@ -1,9 +1,10 @@
 // Program 2.17 Calculating the height of a tree
 // Page 79
 
+
 #include <stdio.h> // include stdio.h for scanf and printf.
 #define INCHES(a) a=feet*inches_per_foot+inches // Convert feet to inches.
-// #define TREE_HEIGHT(a) a=shorty + (shorty_to_lofty + lofty_to_tree)*(lofty-shorty)/(shorty_to_lofty)
+#define TREE_HEIGHT(a) a=shorty + (shorty_to_lofty + lofty_to_tree)*(lofty-shorty)/(shorty_to_lofty)
 
 int main(int argc, char* argv[])
 {
@@ -53,10 +54,10 @@ int main(int argc, char* argv[])
     INCHES(lofty_to_tree);
 
     // Calculate the height of the tree in inches:
-    // TREE_HEIGHT(tree_height);
-    tree_height = shorty + (shorty_to_lofty + lofty_to_tree)*(lofty-shorty)/(shorty_to_lofty);
+    TREE_HEIGHT(tree_height);
+    // tree_height = shorty + (shorty_to_lofty + lofty_to_tree)*(lofty-shorty)/(shorty_to_lofty);
 
-    // DISPLAY THE RESULT!
+    // Step 3: Display the result.
     printf("The height of the tree is %ld feet and %ld inches.\n", tree_height/inches_per_foot, tree_height% inches_per_foot);
     
     return 0;

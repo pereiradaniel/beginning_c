@@ -79,3 +79,13 @@ variable you’ve reserved for Lofty’s height. You’ll do the same thing for 
 of his or her eyes) and finally you’ll read in the value for the distance between them. For the distance to the tree, you’ll
 use only whole feet, because this will be accurate enough—and you’ll convert the distance to inches for calculation
 purposes. You can reuse the same variables for each measurement in feet and inches that is entered.
+
+## Step 2
+
+Now that you have all the required data, you can calculate the height of the tree. You just need to express the equation
+for the tree height in terms of your variables. You’ll need to declare another variable to store the height of the tree.
+
+## Step 3
+
+Finally, you need to output the height of the tree. To present the results in the most easily understandable form, you
+can convert the results that you’ve stored in tree_height—which is in inches—back into feet and inches:
