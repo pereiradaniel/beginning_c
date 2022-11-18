@@ -67,7 +67,7 @@ double calculatePrice(int input, int quantity)
 
 void display(int input, int quantity, double price)
 {
-    printf("\n\nRESULTS:\nProduct type: %d, quantity: %d, total: %lf\n", input, quantity, price);
+    printf("\n\nRESULTS:\nProduct type: %d, quantity: %d, total: $%.2f\n", input, quantity, price);
 }
 
 int checkInput(int input, int min, int max)
