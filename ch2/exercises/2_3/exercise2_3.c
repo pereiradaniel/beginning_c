@@ -3,8 +3,8 @@
 // You’re selling a product that’s available in two versions: type 1 is a
 // standard version priced at $3.50, and type 2 is a deluxe version priced at $5.50.
 // Write a program using only what you’ve learned up to now that prompts for the user to
-// enter the product type and a quantity, and then calculates and outputs the price for the
-// quantity entered.
+// enter the product type and a quantity, and then calculates and outputs the price for
+// the quantity entered.
 
 #include <stdio.h>
 #include <limits.h>
@@ -18,14 +18,14 @@ int checkInput(int input, int min, int max);
 
 int main(int argc, char* argv[])
 {
-    int input = 0, quantity = 0;
+    int type = 0, quantity = 0;
     double price = 0;
 
     // USER SELECTS TYPE:
     printf("Select product type (1 or 2): ");
-    while(input == 0) {
-        scanf(" %d", &input);
-        input = checkInput(input, 1, 2);
+    while(type == 0) {
+        scanf(" %d", &type);
+        type = checkInput(type, 1, 2);
     };
 
     // USER SELECTS QUANTITY:
@@ -37,8 +37,8 @@ int main(int argc, char* argv[])
     };
 
     // CALCULATE RESULTS AND DISPLAY:
-    price = calculatePrice(input, quantity);
-    display(input, quantity, price);
+    price = calculatePrice(type, quantity);
+    display(type, quantity, price);
 
     return 0;
 }
