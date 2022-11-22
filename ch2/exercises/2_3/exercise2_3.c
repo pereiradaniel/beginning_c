@@ -77,14 +77,14 @@ void calcStats(int type, int quantity)
 
 double calculatePrice(int input, int quantity)
 {
-    double mult = 0;
+    double unit_price = 0;
 
     if (input == 1)
-        mult = TYPE1;
+        unit_price = TYPE1;
     if (input == 2)
-        mult = TYPE2;
+        unit_price = TYPE2;
 
-    return mult * (double)quantity;
+    return unit_price * (double)quantity;
 }
 
 void display(int input, int quantity, double price)
@@ -94,7 +94,7 @@ void display(int input, int quantity, double price)
 
 int checkInput(int input, int min, int max)
 {
-    int result = 0;
+    int result = 0; // Return 0 if input is invalid.
 
     if (input < min || input > max)     // out of bounds, invalid!
         printf("\nEnter a number between %d or %d!\n", min, max);
