@@ -7,6 +7,8 @@
 // the quantity entered.
 
 #include <stdio.h>
+
+#include <ctype.h>
 #include <limits.h> // Makes use of INT_MAX
 
 // FIXED PRODUCT PRICES:
@@ -21,37 +23,50 @@ double calculatePrice(int input, int quantity);
 void display(int input, int quantity, double price);
 // A function that validates a user's input.
 int checkInput(int input, int min, int max);
+// A function that returns the user's validated input.
+int getInput(char* msg, int min, int max);
 
 int main(int argc, char* argv[])
 {
     int type = 0, quantity = 0; // Vars for storing user input.
     double price = 0;           // Stores calculated results.
 
-    // USER SELECTS TYPE:
-        // Can be either 1 or 2
-        // Loops until input is valid and not == 0
-    printf("Select product type (1 or 2): ");
-    while(type == 0) {
-        scanf(" %d", &type);
-        type = checkInput(type, 1, 2);
-    };
+    char repeat = 'Y';          // Loop var for main program to repeat.
 
-    // USER SELECTS QUANTITY:
-        // Min value is 1
-        // Max value for quantity is largest possible INT value!
-        // Loops until input is valid and not == 0
-    printf("\nSelect quantity: ");
-    while(quantity == 0) {
-        scanf(" %d", &quantity);
-        quantity = checkInput(quantity, 1, INT_MAX);
-    };
+    while (toupper(repeat) == 'Y')
+    {
+        // Get type from user, can be either 1 or 2:
+        type = getInput("Select product type (1 or 2): ", 1, 2);
+        
+        // Get quantity from user, can be from 1 to largest possible INT value:
+        quantity = getInput("Select quantity: ", 1, INT_MAX);
 
-    // CALCULATE AND DISPLAY RESULTS:
-    calcStats(type, quantity);    
-    price = calculatePrice(type, quantity);
-    display(type, quantity, price);
+        // Display user's selection before calculating:
+        calcStats(type, quantity);    
+
+        // Calculate price based on user's input:
+        price = calculatePrice(type, quantity);
+        
+        // Display final results:
+        display(type, quantity, price);
+
+        // Ask if user wants to repeat the main program:
+        printf("\nAgain? (Y to repeat/any other key to quit) ");
+        scanf(" %c", &repeat);
+    };
 
     return 0;
+}
+
+int getInput(char* msg, int min, int max)
+{
+    int var = 0;
+    printf("%s", msg);
+    while(var == 0) {
+        scanf(" %d", &var);
+        var = checkInput(var, min, max);
+    }; // Loops until input is valid and not == 0
+    return var;
 }
 
 void calcStats(int type, int quantity)
@@ -82,7 +97,8 @@ int checkInput(int input, int min, int max)
 
     if (input < min || input > max)     // out of bounds, invalid!
         printf("\nEnter a number between %d or %d!\n", min, max);
-    else                                // inbounds, validate!
+    
+    if (input >= min && input <= max)   // inbounds, validate!
         result = input;
 
     return result;
