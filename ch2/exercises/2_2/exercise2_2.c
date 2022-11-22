@@ -18,14 +18,14 @@ int main(int argc, char* argv[])
     double length = 0, width = 0; // room dimensions in yards
 
     // Prompt user for length and width of a room in feet and inches.
-    printf("ROOM LENGTH\n-----------\nEnter room length:\nFEET:");
+    printf("ROOM LENGTH\n-----------\nEnter room length:\nFEET: ");
     scanf(" %d", &feet);
     printf("INCHES: ");
     scanf(" %d", &inches);
 
     length = getYards(feet, inches);
 
-    printf("\nROOM WIDTH\n----------\nEnter room width:\nFEET:");
+    printf("\nROOM WIDTH\n----------\nEnter room width:\nFEET: ");
     scanf(" %d", &feet);
     printf("INCHES: ");
     scanf(" %d", &inches);
