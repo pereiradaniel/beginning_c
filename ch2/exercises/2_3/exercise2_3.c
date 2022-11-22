@@ -11,8 +11,8 @@
 #include <limits.h> // INT_MAX
 
 // FIXED PRODUCT PRICES:
-    #define TYPE1 3.5f  // Type1 price
-    #define TYPE2 5.5f  // Type2 price
+#define TYPE1 3.5f  // Type1 price
+#define TYPE2 5.5f  // Type2 price
 
 // A function that prints the user's input to the screen.
 void calcStats(int type, int quantity);
