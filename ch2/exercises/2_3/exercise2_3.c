@@ -11,9 +11,9 @@
 #define TYPE1 3.5f  // Type1 price
 #define TYPE2 5.5f  // Type2 price
 
-// A function that prints the calculation stats to the screen. 
+// A function that prints the user's input to the screen.
 void calcStats(int type, int quantity);
-// A function that displays a message using calcStats and returns the calculated the price.
+// A function that returns the calculated the price.
 double calculatePrice(int input, int quantity);
 // A function that displays the results.
 void display(int input, int quantity, double price);
