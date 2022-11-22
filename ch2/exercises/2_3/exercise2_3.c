@@ -29,7 +29,7 @@ int main(int argc, char* argv[])
 {
     // Set and initialize vars for main program:
     int type = 0, quantity = 0; // Vars for storing user input.    
-    double price = 0;          // Stores calculated results.
+    double price = 0;           // Stores calculated results.
 
     char repeat = 'Y';          // Loop var for main program to repeat.
 
