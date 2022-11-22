@@ -1,4 +1,5 @@
 // Exercise 2-3
+// Daniele Grech Pereira 22 November 2022
 
 // You’re selling a product that’s available in two versions: type 1 is a
 // standard version priced at $3.50, and type 2 is a deluxe version priced at $5.50.
@@ -14,12 +15,8 @@
 #define TYPE1 3.5f  // Type1 price
 #define TYPE2 5.5f  // Type2 price
 
-// A function that prints the user's input to the screen.
-void calcStats(int type, int quantity);
 // A function that returns the calculated the price.
 double calculatePrice(int input, int quantity);
-// A function that displays the results.
-void display(int input, int quantity, double price);
 // A function that validates a user's input.
 int checkInput(int input, int min, int max);
 // A function that returns the user's validated input.
@@ -43,13 +40,13 @@ int main(int argc, char* argv[])
         quantity = getInput("Select quantity: ", 1, INT_MAX);
 
         // Display user's selection before calculating:
-        calcStats(type, quantity);    
+        printf("\nProduct type %d selected @ %d units.", type, quantity);
 
         // Calculate price based on user's input:
         price = calculatePrice(type, quantity);
         
         // Display final results:
-        display(type, quantity, price);
+        printf("\n\nRESULTS:\nProduct type: %d, quantity: %d, total: $%.2f\n", type, quantity, price);
 
         // Ask if user wants to repeat the main program:
         printf("\nAgain? (Y to repeat/any other key to quit) ");
@@ -70,11 +67,6 @@ int getInput(char* msg, int min, int max)
     return var;
 }
 
-void calcStats(int type, int quantity)
-{
-    printf("\nProduct type %d selected @ %d units.", type, quantity);
-}
-
 double calculatePrice(int input, int quantity)
 {
     double unit_price = 0;
@@ -85,11 +77,6 @@ double calculatePrice(int input, int quantity)
         unit_price = TYPE2;
 
     return unit_price * (double)quantity;
-}
-
-void display(int input, int quantity, double price)
-{
-    printf("\n\nRESULTS:\nProduct type: %d, quantity: %d, total: $%.2f\n", input, quantity, price);
 }
 
 int checkInput(int input, int min, int max)
