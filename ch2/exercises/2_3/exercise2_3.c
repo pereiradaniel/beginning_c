@@ -7,7 +7,7 @@
 // the quantity entered.
 
 #include <stdio.h>
-#include <limits.h>
+#include <limits.h> // Makes use of INT_MAX
 #define TYPE1 3.5f  // Type1 price
 #define TYPE2 5.5f  // Type2 price
 
@@ -26,21 +26,31 @@ int main(int argc, char* argv[])
     double price = 0;
 
     // USER SELECTS TYPE:
+        // Can be either 1 or 2
+        // Loops until input is valid and not == 0
     printf("Select product type (1 or 2): ");
     while(type == 0) {
         scanf(" %d", &type);
         type = checkInput(type, 1, 2);
-    }; // Loops until input is valid and not == 0
+    };
 
     // USER SELECTS QUANTITY:
+        // Min value is 1
+        // Max value for quantity is largest possible INT value!
+        // Loops until input is valid and not == 0
     printf("\nSelect quantity: ");
     while(quantity == 0)
     {
         scanf(" %d", &quantity);
         quantity = checkInput(quantity, 1, INT_MAX);
-    }; // Loops until input is valid and not == 0
+    };
 
-    // CALCULATE RESULTS AND DISPLAY:
+    // CALCULATE AND DISPLAY RESULTS:
+    
+    // Display user's selection:
+    calcStats(type, quantity);
+    
+    // Calculate and display results:
     price = calculatePrice(type, quantity);
     display(type, quantity, price);
 
@@ -59,11 +69,9 @@ double calculatePrice(int input, int quantity)
     {
         case 1:
             mult = TYPE1;
-            calcStats(1, quantity);
             break;
         case 2:
             mult = TYPE2;
-            calcStats(2, quantity);
             break;
     }
     return mult * (double)quantity;
