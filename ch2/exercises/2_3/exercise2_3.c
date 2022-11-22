@@ -28,6 +28,7 @@ int main(int argc, char* argv[])
     // USER SELECTS TYPE:
         // Can be either 1 or 2
         // Loops until input is valid and not == 0
+
     printf("Select product type (1 or 2): ");
     while(type == 0) {
         scanf(" %d", &type);
@@ -38,6 +39,7 @@ int main(int argc, char* argv[])
         // Min value is 1
         // Max value for quantity is largest possible INT value!
         // Loops until input is valid and not == 0
+
     printf("\nSelect quantity: ");
     while(quantity == 0)
     {
