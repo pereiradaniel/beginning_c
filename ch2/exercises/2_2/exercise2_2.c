@@ -20,14 +20,14 @@ int main(int argc, char* argv[])
     // Prompt user for length and width of a room in feet and inches.
     printf("ROOM LENGTH\n-----------\nEnter room length:\nFEET:");
     scanf(" %d", &feet);
-    printf("INCHES:");
+    printf("INCHES: ");
     scanf(" %d", &inches);
 
     length = getYards(feet, inches);
 
     printf("\nROOM WIDTH\n----------\nEnter room width:\nFEET:");
     scanf(" %d", &feet);
-    printf("INCHES:");
+    printf("INCHES: ");
     scanf(" %d", &inches);
 
     width = getYards(feet, inches);
