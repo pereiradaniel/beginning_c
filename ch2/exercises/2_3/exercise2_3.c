@@ -7,13 +7,12 @@
 // the quantity entered.
 
 #include <stdio.h>
-
-#include <ctype.h>
-#include <limits.h> // Makes use of INT_MAX
+#include <ctype.h>  // toupper
+#include <limits.h> // INT_MAX
 
 // FIXED PRODUCT PRICES:
-#define TYPE1 3.5f  // Type1 price
-#define TYPE2 5.5f  // Type2 price
+    #define TYPE1 3.5f  // Type1 price
+    #define TYPE2 5.5f  // Type2 price
 
 // A function that prints the user's input to the screen.
 void calcStats(int type, int quantity);
@@ -28,11 +27,13 @@ int getInput(char* msg, int min, int max);
 
 int main(int argc, char* argv[])
 {
+    // Set and initialize vars for main program:
     int type = 0, quantity = 0; // Vars for storing user input.
     double price = 0;           // Stores calculated results.
 
     char repeat = 'Y';          // Loop var for main program to repeat.
 
+    // Main program loop:
     while (toupper(repeat) == 'Y')
     {
         // Get type from user, can be either 1 or 2:
