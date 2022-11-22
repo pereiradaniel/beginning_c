@@ -8,12 +8,16 @@
 
 #include <stdio.h>
 #include <limits.h>
-#define TYPE1 3.5f
-#define TYPE2 5.5f
+#define TYPE1 3.5f  // Type1 price
+#define TYPE2 5.5f  // Type2 price
 
+// A function that prints the calculation stats to the screen. 
 void calcStats(int type, int quantity);
+// A function that displays a message using calcStats and returns the calculated the price.
 double calculatePrice(int input, int quantity);
+// A function that displays the results.
 void display(int input, int quantity, double price);
+// A function that validates a user's input.
 int checkInput(int input, int min, int max);
 
 int main(int argc, char* argv[])
@@ -26,7 +30,7 @@ int main(int argc, char* argv[])
     while(type == 0) {
         scanf(" %d", &type);
         type = checkInput(type, 1, 2);
-    };
+    }; // Loops until input is valid and not == 0
 
     // USER SELECTS QUANTITY:
     printf("\nSelect quantity: ");
@@ -34,7 +38,7 @@ int main(int argc, char* argv[])
     {
         scanf(" %d", &quantity);
         quantity = checkInput(quantity, 1, INT_MAX);
-    };
+    }; // Loops until input is valid and not == 0
 
     // CALCULATE RESULTS AND DISPLAY:
     price = calculatePrice(type, quantity);
