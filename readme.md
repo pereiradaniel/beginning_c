@@ -18,4 +18,7 @@ to the relevant portions of the source material for clarity.
 
 [Ebook in PDF](http://www.mosaic-industries.com/embedded-systems/_media/c-ide-software-development/learning-c-programming-language/beginning-c-5th-edition-ivor-horton.pdf)
 
+---
+
 _*Daniel Pereira 2022*_
+
