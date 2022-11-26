@@ -1,32 +1,32 @@
-daniel@daniel-B85M-D3H:~/github/beginning_c/ch3/exercises/3_1$ valgrind ./exercise3_1 
-==12968== Memcheck, a memory error detector
-==12968== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==12968== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
-==12968== Command: ./exercise3_1
-==12968== 
+==19635== Memcheck, a memory error detector
+==19635== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==19635== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==19635== Command: ./exercise3_1
+==19635== 
+Choose 1 or 2 from the following options:
+        1. Convert a temperature from degrees Celsius to degrees Fahrenheit.
+        2. Convert a temperature from degrees Fahrenheit to degrees Celsius.
+3
+
+Invalid selection! Choose 1 or 2. Try again.
+Choose 1 or 2 from the following options:
+        1. Convert a temperature from degrees Celsius to degrees Fahrenheit.
+        2. Convert a temperature from degrees Fahrenheit to degrees Celsius.
+0
+
+Invalid selection! Choose 1 or 2. Try again.
 Choose 1 or 2 from the following options:
         1. Convert a temperature from degrees Celsius to degrees Fahrenheit.
         2. Convert a temperature from degrees Fahrenheit to degrees Celsius.
 1
 Enter temperature to convert:
-27
+27.0
 
-Conversion: 80.60 fahreneit.
-==12968== 
-==12968== HEAP SUMMARY:
-==12968==     in use at exit: 0 bytes in 0 blocks
-==12968==   total heap usage: 2 allocs, 2 frees, 2,048 bytes allocated
-==12968== 
-==12968== All heap blocks were freed -- no leaks are possible
-==12968== 
-==12968== For lists of detected and suppressed errors, rerun with: -s
-==12968== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
-daniel@daniel-B85M-D3H:~/github/beginning_c/ch3/exercises/3_1$ valgrind ./exercise3_1 
-==13038== Memcheck, a memory error detector
-==13038== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==13038== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
-==13038== Command: ./exercise3_1
-==13038== 
+Conversion:
+27.00 celsius is 80.60 fahreneit.
+
+Again? (Y to repeat, any other key to quit.)
+y
 Choose 1 or 2 from the following options:
         1. Convert a temperature from degrees Celsius to degrees Fahrenheit.
         2. Convert a temperature from degrees Fahrenheit to degrees Celsius.
@@ -34,13 +34,17 @@ Choose 1 or 2 from the following options:
 Enter temperature to convert:
 80.6
 
-Conversion: 27.00 celsius.
-==13038== 
-==13038== HEAP SUMMARY:
-==13038==     in use at exit: 0 bytes in 0 blocks
-==13038==   total heap usage: 2 allocs, 2 frees, 2,048 bytes allocated
-==13038== 
-==13038== All heap blocks were freed -- no leaks are possible
-==13038== 
-==13038== For lists of detected and suppressed errors, rerun with: -s
-==13038== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+Conversion:
+80.60 farenheit is 27.00 celsius.
+
+Again? (Y to repeat, any other key to quit.)
+n
+==19635== 
+==19635== HEAP SUMMARY:
+==19635==     in use at exit: 0 bytes in 0 blocks
+==19635==   total heap usage: 2 allocs, 2 frees, 2,048 bytes allocated
+==19635== 
+==19635== All heap blocks were freed -- no leaks are possible
+==19635== 
+==19635== For lists of detected and suppressed errors, rerun with: -s
+==19635== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
