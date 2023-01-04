@@ -32,7 +32,7 @@ int main(int argc, char* argv[])
 
 void printDay(int day)
 {
-    (day > 3 && day < 21 || day > 23 && day < 31) ? printf("\n%dth ", day) : printf("\n%d%s ", day, daySuffix(day));
+    ((day > 3 && day < 21) || (day > 23 && day < 31)) ? printf("\n%dth ", day) : printf("\n%d%s ", day, daySuffix(day));
 }
 
 const char* daySuffix(int day)
