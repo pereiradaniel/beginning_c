@@ -16,24 +16,15 @@ void printYear(int year);
 
 int main(int argc, char* argv[])
 {
-    // INPUT
-    // Declare variables:
-        int month, day, year = 0;
+    int month, day, year = 0;
     
-    // Prompt user for input:
-        printf("\nEnter the date as three integer values, separated by spaces (month day year).\nExample 12 31 2003\n");
-        scanf(" %d", &month);
-        scanf(" %d", &day);
-        scanf(" %d", &year);
+    printf("\nEnter the date as three integer values, separated by spaces (month day year).\nExample 12 31 2003\n");
+    scanf(" %d", &month);
+    scanf(" %d", &day);
+    scanf(" %d", &year);
     
-    // OUTPUT
-    // Detect day and and append suffix, print:
     printDay(day);
-
-    // Detect month and print:
     printMonth(month);
-  
-    // Print year:
     printYear(year);
     
     return 0;
@@ -41,10 +32,7 @@ int main(int argc, char* argv[])
 
 void printDay(int day)
 {
-    if (day > 3 && day < 21 || day > 23 && day < 31)
-        printf("\n%dth ", day);
-    else
-        printf("\n%d%s ", day, daySuffix(day));
+    (day > 3 && day < 21 || day > 23 && day < 31) ? printf("\n%dth ", day) : printf("\n%d%s ", day, daySuffix(day));
 }
 
 const char* daySuffix(int day)
@@ -57,16 +45,16 @@ void printMonth(int month)
     switch(month)
     {
         case 1:
-        printf("January ");
+        printf("January");
         break;
         case 2:
-        printf("February ");
+        printf("February");
         break;
         case 3:
-        printf("March ");
+        printf("March");
         break;
         case 4:
-        printf("April ");
+        printf("April");
         break;
         case 5:
         printf("May");
