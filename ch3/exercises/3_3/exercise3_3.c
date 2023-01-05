@@ -6,30 +6,36 @@
 
 #include <stdio.h>
 
-#define DISCOUNTED_PRICE(quantity,unit_price,discount) quantity * unit_price * discount
+#define UNIT_PRICE 5.0  // Single unit price
+#define DISCOUNT1 0.10  // Level 1 discount > 30 < 50 items
+#define DISCOUNT2 0.15  // Level 2 discount > 50 items
+#define Q1 30           // Quantity threshold for level 1 discount > 30
+#define Q2 50           // Quantity threshold for level 2 discount > 50
+
+double calculatePrice(int quantity, double discount);
 
 int main(int argc, char*argv[])
 {
-    const int q1 = 30; // Discount quantity level 1: 30 or more items.
-    const int q2 = 50; // Discount quantity level 2: 50 or more items.
-    const int discount1 = 0.10;   // 10% discount
-    const int discount2 = 0.15;   // 15% discount
-    const int unit_price = 5.0;   // Price for single item.
-
     int quantity = 0;       // Quantity
-    double total_price = 0;
+    double total_price = 0; // Total price after discount is applied
 
-    printf("\nEnter quantity:\n");
+    printf("\nPlease enter number of items: ");
     scanf(" %d", &quantity);
     
-    if (quantity > q2)
-        total_price = DISCOUNTED_PRICE(quantity, unit_price, discount2);
-    else if (quantity > 30 && quantity < 50)
-        total_price = DISCOUNTED_PRICE(quantity, unit_price, discount1);
+    if (quantity > Q2)
+        total_price = calculatePrice(quantity, DISCOUNT2);
+    else if (quantity > Q1)
+        total_price = calculatePrice(quantity, DISCOUNT1);
     else
-        total_price = quantity * unit_price;
+        total_price = calculatePrice(quantity, 0.0);
 
-    printf("\nQuantity: %d, Total price after discount: %.2lf.", quantity, total_price);
+    printf("\nTotal price after discount: %.2lf.\n", total_price);
 
     return 0;
+}
+
+double calculatePrice(int quantity, double discount)
+{
+    printf("\nApplying discount for %d items: %.2lf", quantity, discount);
+    return (quantity * UNIT_PRICE) - (quantity * UNIT_PRICE * discount);
 }
