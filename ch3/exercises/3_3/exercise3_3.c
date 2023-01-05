@@ -17,7 +17,7 @@ int main(int argc, char*argv[])
     const int unit_price = 5.0;   // Price for single item.
 
     int quantity = 0;       // Quantity
-    int total_price = 0;
+    double total_price = 0;
 
     printf("\nEnter quantity:\n");
     scanf(" %d", &quantity);
@@ -29,7 +29,7 @@ int main(int argc, char*argv[])
     else
         total_price = quantity * unit_price;
 
-    printf("\nQuantity: %d, Total price after discount: %lf.", quantity, total_price);
+    printf("\nQuantity: %d, Total price after discount: %.2lf.", quantity, total_price);
 
     return 0;
 }
