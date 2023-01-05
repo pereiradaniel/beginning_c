@@ -6,9 +6,7 @@
 
 #include <stdio.h>
 
-
-
-double calculatePrice(int quantity);
+#define DISCOUNTED_PRICE(quantity,unit_price,discount) quantity * unit_price * discount
 
 int main(int argc, char*argv[])
 {
@@ -23,22 +21,15 @@ int main(int argc, char*argv[])
 
     printf("\nEnter quantity:\n");
     scanf(" %d", &quantity);
-
-    total_price = calculatePrice(quantity);
+    
+    if (quantity > q2)
+        total_price = DISCOUNTED_PRICE(quantity, unit_price, discount2);
+    else if (quantity > 30 && quantity < 50)
+        total_price = DISCOUNTED_PRICE(quantity, unit_price, discount1);
+    else
+        total_price = quantity * unit_price;
 
     printf("\nQuantity: %d, Total price after discount: %lf.", quantity, total_price);
 
     return 0;
 }
-
-double calculatePrice(int quantity)
-{
-    double result = 0.0;
-    
-    if (quantity < 31)
-    {
-        result = (double)quantity * unit_price * discount1;
-    }
-
-    return result;
-};
