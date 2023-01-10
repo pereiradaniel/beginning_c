@@ -16,9 +16,10 @@ int main(int argc, char* argv[])
     do {
         if (sum != 0)
             sum = 0;
+
         do {
             printf("\nEnter a number from 1-%u: ", INT_MAX);
-            scanf(" %d", &count);
+            scanf(" %u", &count);
 
             if (count == 0 || count > INT_MAX)
                 printf("\nOut of bounds! Try again.");
@@ -32,8 +33,6 @@ int main(int argc, char* argv[])
         printf("\nAgain? (y\\n)\n");
         scanf(" %c", &choice);
     } while(choice == 'y' || choice == 'Y');
-    
-
 
     return 0;
 }
