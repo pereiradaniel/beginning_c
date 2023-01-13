@@ -4,6 +4,11 @@
 // characters to a line. Make sure the columns are aligned. (Hint: You can use the isgraph()
 // function that’s declared in ctype.h to determine when a character is printable.)
 
+// Daniel Pereira January 2023
+// UPGRADES to original exericse!
+// - User selects between 1-8 columns to display.
+// - CHAR_MAX to control upper limit of char codes.
+
 #include <stdio.h>
 #include <ctype.h>
 
