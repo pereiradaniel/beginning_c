@@ -6,13 +6,7 @@
 
 ## What is in this repo?
 
-Experiments and sample code from studying **Beginning C: From Novice to Professional, Fifth Edition** by *Ivor Horton*.
-
-This is not a complete list of every example from the book, but merely the things I wanted to practise and review.
-
-- Programs taken directly from the book will be labelled as such with chapter and page references. I will also include valgrind outputs in accompanying text files.
-- My own experiments that are not found in the book will labelled as such with my name as the author. They will be placed in chapter directories so that you can refer
-to the relevant portions of the source material for clarity.
+My experiments and solutions to exercises from studying **Beginning C: From Novice to Professional, Fifth Edition** by *Ivor Horton*.
 
 [Read the book in HTML](https://link.springer.com/book/10.1007/978-1-4302-4882-8?)
 
@@ -20,5 +14,5 @@ to the relevant portions of the source material for clarity.
 
 ---
 
-_*Daniel Pereira 2022*_
+_*Daniel Pereira 2022-23*_
 
