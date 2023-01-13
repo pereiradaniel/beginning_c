@@ -32,7 +32,7 @@ int main(int argc, char* argv[])
     for(int i = 0; i <= CHAR_MAX; i+=cols) // Print row
     {
         for (int j = 0; j<cols && (j+i) <= CHAR_MAX; ++j) // Print col
-            printf("%4d\t%4c\t", i+j, isgraph(i+j) ? i+j : ' ');
+            printf("%4d\t%4c\t", i+j, isgraph(i+j) ? i+j+' ' : ' ');
         printf("\n");
     }
 
