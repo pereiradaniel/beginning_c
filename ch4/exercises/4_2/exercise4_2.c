@@ -17,7 +17,7 @@ int main(int argc, char* argv[])
     while (cols <= 0 || cols > MAX_COLS) // Loop until user input is within bounds
     {
         printf("\nThis program will output printable characters for code values from 0-127.");
-        printf("\nHow many character/code pairs per row would you like to see? (1-%d): ", MAX_COLS);
+        printf("\nHow many columns of character/code pairs per row would you like to see? (1-%d): ", MAX_COLS);
         scanf(" %d", &cols);
 
         if (cols <= 0 || cols > MAX_COLS) // Warn user if input is out of bounds
