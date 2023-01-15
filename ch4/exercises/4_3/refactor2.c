@@ -12,18 +12,17 @@
 #define CHAR_MAX 127 // Max char to print
 
 void decodeChar(char c); // Prints a label for non printable characters.
-void printTable(int min_char, int max_char, int cols);
-void warnUser(int min_char, int max_char);
+void printTable(int min_char, int max_char, int cols); // Prints character code table.
+void warnUser(int min_char, int max_char); // Warns user if input for table is invalid.
 
 int main(int argc, char* argv[])
 {
-    int cols = 0;  // columns for user input
-    int min_char = 0;
-    int max_char = 0;
+    int cols = 0;       // columns for user input
+    int min_char = 0;   // min range for char codes
+    int max_char = 0;   // max range for char codes
 
-    bool repeat = true;
-    char again = 'n';
-
+    bool repeat = true; // main repeat
+    char again = 'n';   // user choice
 
     while (repeat == true)
     {
@@ -45,7 +44,7 @@ int main(int argc, char* argv[])
             warnUser(min_char, max_char);
         }
 
-        printTable(min_char, max_char, cols);
+        printTable(min_char, max_char, cols);   // Print character code table
         
         printf("\n");
 
@@ -55,12 +54,7 @@ int main(int argc, char* argv[])
         if (again == 'n' || again == 'N')
             repeat = false;
         else if (again == 'y' || 'Y')
-        {
-            max_char = 0;
-            min_char = 0;
-            cols = 0;
-        }
-            
+            max_char = 0, min_char = 0, cols = 0;            
     };
     
     return 0;
