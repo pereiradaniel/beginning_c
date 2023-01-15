@@ -3,6 +3,7 @@
 // “newline”, “space”, “tab”, and so on, for each whitespace character.
 
 // REFACTOR: User selects range of char codes
+// REFACTOR2: Main program loops until user quits
 
 #include <stdio.h>
 #include <ctype.h>
