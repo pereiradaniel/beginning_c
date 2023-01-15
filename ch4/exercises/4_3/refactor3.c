@@ -14,7 +14,6 @@
 #define CHAR_MAX 127 // Max char to print
 
 void decodeChar(char c); // Prints a label for non printable characters.
-void printTable(int min_char, int max_char, int cols, int np); // Prints character code table.
 void warnUser(int min_char, int max_char); // Warns user if input for table is invalid.
 
 int main(int argc, char* argv[])
@@ -22,8 +21,7 @@ int main(int argc, char* argv[])
     int cols = 0;       // columns for user input
     int min_char = 0;   // min range for char codes
     int max_char = 0;   // max range for char codes
-
-    int np = 0;
+    int np = 0;         // non-printable character counter
 
     bool repeat = true; // main repeat
     char again = 'n';   // user choice
@@ -48,10 +46,22 @@ int main(int argc, char* argv[])
             warnUser(min_char, max_char);
         }
 
-        printTable(min_char, max_char, cols, np);   // Print character code table
-        
-        printf("\n");
-
+    for(int i = min_char, j = 0; i <= max_char; ++i, ++j)      // Decode and print a character.
+        {
+            if (j%cols==0)
+                printf("\n");                   // Print new line if num of cols reached.
+            
+            printf("  %4d",i);                  // Print code number
+            
+            if (isgraph(i))
+                printf("               %c",i);  // Prints printable character
+            else
+            {
+                decodeChar(i);                  // Returns label for non-printable character
+                ++np;                           // count a non-printable char
+            }
+        }
+        printf("\n%d non printable chars were in the output.\n", np);
         printf("\nAgain ? (y/n): ");
         scanf(" %c", &again);
 
@@ -74,26 +84,6 @@ void warnUser(int min_char, int max_char)
         printf("\n%d greater than %d! Minimum number must be less than maximum.", min_char, max_char);
     if (min_char == max_char)
         printf("\n%d is equal to %d! Minimum number must be less than maximum.", min_char, max_char);
-}
-
-void printTable(int min_char, int max_char, int cols, int np)
-{
-    for(int i = min_char, j = 0; i <= max_char; ++i, ++j)      // Decode and print a character.
-    {
-        if (j%cols==0)
-            printf("\n");                   // Print new line if num of cols reached.
-        
-        printf("  %4d",i);                  // Print code number
-        
-        if (isgraph(i))
-            printf("               %c",i);  // Prints printable character
-        else
-        {
-            decodeChar(i);                  // Returns label for non-printable character
-            ++np;                           // count a non-printable char
-        }
-    }
-    printf("\n%d non printable chars were in the output.", np);
 }
 
 void decodeChar(char c) // Prints a label for non printable characters.
