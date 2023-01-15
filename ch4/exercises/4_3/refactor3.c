@@ -21,7 +21,6 @@ int main(int argc, char* argv[])
     int cols = 0;       // columns for user input
     int min_char = 0;   // min range for char codes
     int max_char = 0;   // max range for char codes
-    int np = 0;         // non-printable character counter
 
     bool repeat = true; // main repeat
     char again = 'n';   // user choice
@@ -46,7 +45,7 @@ int main(int argc, char* argv[])
             warnUser(min_char, max_char);
         }
 
-    for(int i = min_char, j = 0; i <= max_char; ++i, ++j)      // Decode and print a character.
+    for(int i = min_char, j = 0, np = 0; i <= max_char; ++i, ++j)      // Decode and print a character.
         {
             if (j%cols==0)
                 printf("\n");                   // Print new line if num of cols reached.
@@ -58,17 +57,20 @@ int main(int argc, char* argv[])
             else
             {
                 decodeChar(i);                  // Returns label for non-printable character
-                ++np;                           // count a non-printable char
+                ++np;                           // Count a non-printable char
             }
+
+            if (i == max_char)                  // If finished table, print this message.
+                printf("\n%d non printable chars were in the output.\n", np);
         }
-        printf("\n%d non printable chars were in the output.\n", np);
+        
         printf("\nAgain ? (y/n): ");
         scanf(" %c", &again);
 
         if (again == 'n' || again == 'N')
             repeat = false;
         else if (again == 'y' || 'Y')
-            max_char = 0, min_char = 0, cols = 0, np = 0;  // Reset values for another run
+            max_char = 0, min_char = 0, cols = 0;  // Reset values for another run
     };
     
     return 0;
