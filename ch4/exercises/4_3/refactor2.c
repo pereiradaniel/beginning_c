@@ -55,7 +55,7 @@ int main(int argc, char* argv[])
         if (again == 'n' || again == 'N')
             repeat = false;
         else if (again == 'y' || 'Y')
-            max_char = 0, min_char = 0, cols = 0;            
+            max_char = 0, min_char = 0, cols = 0;
     };
     
     return 0;
