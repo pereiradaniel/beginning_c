@@ -69,7 +69,7 @@ int main(int argc, char* argv[])
 
         if (again == 'n' || again == 'N')
             repeat = false;                     // Breaks main loop.
-        else if (again == 'y' || 'Y')
+        else if (again == 'y' || again == 'Y')
             max_char = 0, min_char = 0, cols = 0;  // Reset values for another run.
     };
     
