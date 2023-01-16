@@ -4,7 +4,7 @@
 
 // REFACTOR: User selects range of char codes
 // REFACTOR2: Main program loops until user quits
-// REFACTOR3: Count and report how many non-printable chars.
+// REFACTOR3: Count and report how many printable and non-printable chars.
 
 #include <stdio.h>
 #include <ctype.h>      // isgraph()
@@ -61,7 +61,7 @@ int main(int argc, char* argv[])
             }
 
             if (i == max_char)                  // If finished table, print this message.
-                printf("\n%d non printable chars were in the output.\n", np);
+                printf("\n\nThere were %d non printable and %d printable chars were in the output.\n", np, (max_char-min_char+1)-np);
         }
     
         printf("\nAgain ? (y/n): ");            // Repeat program?
