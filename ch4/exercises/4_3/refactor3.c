@@ -7,8 +7,8 @@
 // REFACTOR3: Count and report how many non-printable chars.
 
 #include <stdio.h>
-#include <ctype.h>
-#include <stdbool.h>
+#include <ctype.h>      // isgraph()
+#include <stdbool.h>    // boolean
 
 #define MAX_COLS 8   // Maximum columns to allow
 #define CHAR_MAX 127 // Max char to print
@@ -78,13 +78,13 @@ int main(int argc, char* argv[])
 
 void warnUser(int min_char, int max_char) // Displays warning if user input for char codes is invalid.
 {
-    if (min_char < 0)
+    if (min_char < 0)           // Low number is less than 0.
         printf("\n%d is out of bounds! Minimum number must be from  0-%d.", min_char, CHAR_MAX-1);
-    if (max_char > CHAR_MAX)
+    if (max_char > CHAR_MAX)    // High number is higher than allowed.
         printf("\n%d is out of bounds! Maximum number must be less than 0-%d.", max_char, CHAR_MAX+1);
-    if (min_char > max_char)
+    if (min_char > max_char)    // Low number is greater than high number.
         printf("\n%d greater than %d! Minimum number must be less than maximum.", min_char, max_char);
-    if (min_char == max_char)
+    if (min_char == max_char)   // Low number is same as high number.
         printf("\n%d is equal to %d! Minimum number must be less than maximum.", min_char, max_char);
 }
 
@@ -108,7 +108,7 @@ void decodeChar(char c) // Prints a label for non printable characters.
             printf("       form feed");
             break;
         default:
-            printf("                ");
+            printf("                ");  // 16 spaces
             break;
     }
 }
