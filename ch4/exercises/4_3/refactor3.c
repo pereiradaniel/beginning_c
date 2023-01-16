@@ -25,58 +25,58 @@ int main(int argc, char* argv[])
     bool repeat = true; // main repeat
     char again = 'n';   // user choice
 
-    while (repeat == true)
+    while (repeat == true) // Main program loop
     {
-        while (cols <= 0 || cols > MAX_COLS)    // Loop until user input is within bounds
+        while (cols <= 0 || cols > MAX_COLS)    // Loop until user input is within bounds.
         {
             printf("\nThis program will output printable characters for code values from 0-%d.", CHAR_MAX);
             printf("\nHow many columns of character/code pairs per row would you like to see? (1-%d): ", MAX_COLS);
             scanf(" %d", &cols);
 
-            if (cols <= 0 || cols > MAX_COLS)   // Warn user if input is out of bounds
+            if (cols <= 0 || cols > MAX_COLS)   // Warn user if input is out of bounds.
                 printf("\n%d is out of bounds! Enter a number from 1-%d.", cols, MAX_COLS);
         }
         
-        while ((max_char <= 0 && min_char <= 0) || min_char >= max_char || max_char > CHAR_MAX || min_char == max_char)    // Loop until min and max char are valid
+        while ((max_char <= 0 && min_char <= 0) || min_char >= max_char || max_char > CHAR_MAX || min_char == max_char)    // Loop until input is valid.
         {
             printf("\nWhat range of char codes do you want? (Range 0-%d, example input \"0 %d\"): ", CHAR_MAX, CHAR_MAX);
             scanf(" %d%d", &min_char, &max_char);
 
-            warnUser(min_char, max_char);
+            warnUser(min_char, max_char);       // Display warning if input is invalid.
         }
 
-    for(int i = min_char, j = 0, np = 0; i <= max_char; ++i, ++j)      // Decode and print a character.
+        for(int i = min_char, j = 0, np = 0; i <= max_char; ++i, ++j)      // Print table.
         {
             if (j%cols==0)
                 printf("\n");                   // Print new line if num of cols reached.
             
-            printf("  %4d",i);                  // Print code number
+            printf("  %4d",i);                  // Print code number.
             
             if (isgraph(i))
-                printf("               %c",i);  // Prints printable character
+                printf("               %c",i);  // Prints printable character.
             else
             {
-                decodeChar(i);                  // Returns label for non-printable character
-                ++np;                           // Count a non-printable char
+                decodeChar(i);                  // Returns label for non-printable character.
+                ++np;                           // Count a non-printable char.
             }
 
             if (i == max_char)                  // If finished table, print this message.
                 printf("\n%d non printable chars were in the output.\n", np);
         }
-        
-        printf("\nAgain ? (y/n): ");
+    
+        printf("\nAgain ? (y/n): ");            // Repeat program?
         scanf(" %c", &again);
 
         if (again == 'n' || again == 'N')
-            repeat = false;
+            repeat = false;                     // Breaks main loop.
         else if (again == 'y' || 'Y')
-            max_char = 0, min_char = 0, cols = 0;  // Reset values for another run
+            max_char = 0, min_char = 0, cols = 0;  // Reset values for another run.
     };
     
     return 0;
 }
 
-void warnUser(int min_char, int max_char)
+void warnUser(int min_char, int max_char) // Displays warning if user input for char codes is invalid.
 {
     if (min_char < 0)
         printf("\n%d is out of bounds! Minimum number must be from  0-%d.", min_char, CHAR_MAX-1);
