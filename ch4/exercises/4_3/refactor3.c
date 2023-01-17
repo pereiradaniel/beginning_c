@@ -14,7 +14,7 @@
 #define CHAR_MAX 127 // Max char to print
 
 void decodeChar(char c); // Prints a label for non printable characters.
-void warnUser(int min_char, int max_char); // Warns user if input for table is invalid.
+void warnUser(int* min_char, int* max_char); // Warns user if input for table is invalid.
 
 int main(int argc, char* argv[])
 {
@@ -41,8 +41,8 @@ int main(int argc, char* argv[])
         {
             printf("\nWhat range of char codes do you want? (Range 0-%d, example input \"0 %d\"): ", CHAR_MAX, CHAR_MAX);
             scanf(" %d%d", &min_char, &max_char);
-
-            warnUser(min_char, max_char);       // Display warning if input is invalid.
+            // printf("\n%p address min_char, %p address max_char.\n", &min_char, &max_char);
+            warnUser(&min_char, &max_char);       // Display warning if input is invalid.
         }
 
         for(int i = min_char, j = 0, np = 0; i <= max_char; ++i, ++j)      // Print table.
@@ -76,16 +76,18 @@ int main(int argc, char* argv[])
     return 0;
 }
 
-void warnUser(int min_char, int max_char) // Displays warning if user input for char codes is invalid.
+void warnUser(int* min_char, int* max_char) // Displays warning if user input for char codes is invalid.
 {
-    if (min_char < 0)           // Low number is less than 0.
-        printf("\n%d is out of bounds! Minimum number must be from  0-%d.", min_char, CHAR_MAX-1);
-    if (max_char > CHAR_MAX)    // High number is higher than allowed.
-        printf("\n%d is out of bounds! Maximum number must be less than 0-%d.", max_char, CHAR_MAX+1);
-    if (min_char > max_char)    // Low number is greater than high number.
-        printf("\n%d greater than %d! Minimum number must be less than maximum.", min_char, max_char);
-    if (min_char == max_char)   // Low number is same as high number.
-        printf("\n%d is equal to %d! Minimum number must be less than maximum.", min_char, max_char);
+    if (*min_char < 0)           // Low number is less than 0.
+        printf("\n%d is out of bounds! Minimum number must be from  0-%d.", *min_char, CHAR_MAX-1);
+    if (*max_char > CHAR_MAX)    // High number is higher than allowed.
+        printf("\n%d is out of bounds! Maximum number must be less than 0-%d.", *max_char, CHAR_MAX+1);
+    if (*min_char > *max_char)    // Low number is greater than high number.
+        printf("\n%d greater than %d! Minimum number must be less than maximum.", *min_char, *max_char);
+    if (*min_char == *max_char)   // Low number is same as high number.
+        printf("\n%d is equal to %d! Minimum number must be less than maximum.", *min_char, *max_char);
+    
+    // printf("\n%p address min_char, %p address max_char.\n", min_char, max_char);
 }
 
 void decodeChar(char c) // Prints a label for non printable characters.
