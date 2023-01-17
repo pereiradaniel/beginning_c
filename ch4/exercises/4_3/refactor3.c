@@ -68,7 +68,10 @@ int main(int argc, char* argv[])
             }
 
             if (i == max_char)                  // If finished table, print this message.
-                printf("\n\nThere were %d non printable and %d printable chars out of a total of %d character codes.\n", np, (max_char-min_char+1)-np, max_char - min_char + 1);
+                printf("\n\nThere were %d non printable and %d printable chars out of a total of %d character codes.\n",
+                np,                         // no. of non printable chars
+                (max_char-min_char+1)-np,   // no. of printable chars, +1 for zero inclusive counting
+                max_char - min_char + 1);   // no. of total character codes scanned, +1 for zero inclusive counting
         }
     
         printf("\nAgain ? (y/n): ");            // Repeat program?
