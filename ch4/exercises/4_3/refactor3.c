@@ -31,8 +31,10 @@ int main(int argc, char* argv[])
         {
             printf("\nThis program will output printable characters for code values from 0-%d.", CHAR_MAX);
             printf("\nHow many columns of character/code pairs per row would you like to see? (1-%d): ", MAX_COLS);
-            scanf(" %d", &cols);
 
+            if (scanf(" %d", &cols) != 1)
+              printf("\nFailed to read integer!\n");
+          
             if (cols <= 0 || cols > MAX_COLS)   // Warn user if input is out of bounds.
                 printf("\n%d is out of bounds! Enter a number from 1-%d.", cols, MAX_COLS);
         }
@@ -40,7 +42,8 @@ int main(int argc, char* argv[])
         while ((max_char <= 0 && min_char <= 0) || min_char >= max_char || max_char > CHAR_MAX || min_char == max_char)    // Loop until input is valid.
         {
             printf("\nWhat range of char codes do you want? (Range 0-%d, example input \"0 %d\"): ", CHAR_MAX, CHAR_MAX);
-            scanf(" %d%d", &min_char, &max_char);
+            if (scanf(" %d%d", &min_char, &max_char) != 1)
+              printf("\nFailed to read integers!\n");
             // Warn user if input is out of bounds.
             if (min_char < 0)           // Low number is less than 0.
                 printf("\n%d is out of bounds! Minimum number must be from  0-%d.", min_char, CHAR_MAX-1);
@@ -75,7 +78,8 @@ int main(int argc, char* argv[])
         }
     
         printf("\nAgain ? (y/n): ");            // Repeat program?
-        scanf(" %c", &again);
+        if (scanf(" %c", &again) != 1)
+          printf("\nFailed to read character!\n");
 
         if (again == 'n' || again == 'N')
             repeat = false;                     // Breaks main loop.
