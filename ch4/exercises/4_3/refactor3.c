@@ -42,7 +42,7 @@ int main(int argc, char* argv[])
         while ((max_char <= 0 && min_char <= 0) || min_char >= max_char || max_char > CHAR_MAX || min_char == max_char)    // Loop until input is valid.
         {
             printf("\nWhat range of char codes do you want? (Range 0-%d, example input \"0 %d\"): ", CHAR_MAX, CHAR_MAX);
-            if (scanf(" %d %d", &min_char, &max_char) != 1)
+            if (scanf(" %d %d", &min_char, &max_char) != 2)
                 printf("\nFailed to read integers!\n");
 
             // Warn user if input is out of bounds.
