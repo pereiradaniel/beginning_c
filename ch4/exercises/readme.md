@@ -24,6 +24,10 @@ function that’s declared in ctype.h to determine when a character is printable
 Extend the previous program to output the appropriate name, such as
 “newline”, “space”, “tab”, and so on, for each whitespace character.
 
+### Try on repl.it
+
+- [4-3, refactor 3](<https://replit.com/@pereiradaniel/Exercise-4-3-refactor-3>)
+
 ## Exercise 4-4
 
 Modify Program 4.13 to determine the random digits by selecting a digit
