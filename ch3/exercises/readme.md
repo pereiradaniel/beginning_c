@@ -1,7 +1,5 @@
 # EXERCISES
 
----
-
 The following exercises enable you to try out what you’ve learned in this chapter. If you get stuck, look back
 over the chapter for help. If you’re still stuck, you can download the solutions from the Source Code/Download
 area of the Apress web site [http://www.apress.com], but that really should be a last resort.
