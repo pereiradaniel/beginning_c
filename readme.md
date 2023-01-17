@@ -1,7 +1,5 @@
 # BEGINNING C
 
----
-
 [This repo on repl.it] (<https://replit.com/@pereiradaniel/beginningc#readme.md>)
 
 > This repo is a product of my desire to review, and become stronger in the C language after running through an Arduino kit.
