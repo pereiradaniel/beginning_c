@@ -5,6 +5,7 @@
 // REFACTOR: User selects range of char codes
 // REFACTOR2: Main program loops until user quits
 // REFACTOR3: Count and report how many printable and non-printable chars.
+// Edit: Improved functions of refactor3.
 
 #include <stdio.h>
 #include <ctype.h>      // isgraph()
@@ -13,8 +14,8 @@
 #define MAX_COLS 8   // Maximum columns to allow
 #define CHAR_MAX 127 // Max char to print
 
-void decodeChar(char c); // Prints a label for non printable characters.
-void warnUser(int* min_char, int* max_char); // Warns user if input for table is invalid.
+void decodeChar(const char* c); // Prints a label for non printable characters.
+void warnUser(const int* min_char, const int* max_char); // Warns user if input for table is invalid.
 
 int main(int argc, char* argv[])
 {
@@ -56,7 +57,7 @@ int main(int argc, char* argv[])
                 printf("               %c",i);  // Prints printable character.
             else
             {
-                decodeChar(i);                  // Returns label for non-printable character.
+                decodeChar((char*)(&i));        // Returns label for non-printable character.
                 ++np;                           // Count a non-printable char.
             }
 
@@ -76,7 +77,7 @@ int main(int argc, char* argv[])
     return 0;
 }
 
-void warnUser(int* min_char, int* max_char) // Displays warning if user input for char codes is invalid.
+void warnUser(const int* min_char, const int* max_char) // Displays warning if user input for char codes is invalid.
 {
     if (*min_char < 0)           // Low number is less than 0.
         printf("\n%d is out of bounds! Minimum number must be from  0-%d.", *min_char, CHAR_MAX-1);
@@ -90,9 +91,9 @@ void warnUser(int* min_char, int* max_char) // Displays warning if user input fo
     // printf("\n%p address min_char, %p address max_char.\n", min_char, max_char);
 }
 
-void decodeChar(char c) // Prints a label for non printable characters.
+void decodeChar(const char* c) // Prints a label for non printable characters.
 {
-    switch(c)
+    switch(*c)
     {
         case '\n':
             printf("         newline");
