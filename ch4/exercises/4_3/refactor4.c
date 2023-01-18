@@ -14,7 +14,6 @@
 #include <stdbool.h>    // boolean
 
 void decodeChar(const char* c);
-int charPrint(const int i);
 
 int main(int argc, char* argv[])
 {
@@ -85,7 +84,8 @@ int main(int argc, char* argv[])
             int i = (ascending == true ? min_char : max_char),
             j = (ascending == true ? 0 : cols);
             (ascending == true ? i <= max_char : i >= min_char);
-            (ascending == true ? ++i : --i), (ascending == true ? ++j : --j))      // Print table.
+            (ascending == true ? ++i : --i), (ascending == true ? ++j : --j)
+            )
         {
             if (j%cols==0)
                 printf("\n");
