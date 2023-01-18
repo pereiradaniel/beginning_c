@@ -74,7 +74,7 @@ int main(int argc, char* argv[])
             ascending = false;
         else if(toupper(choice) == 'A') // Ascending order selected.
             ascending = true;
-        else if(toupper(choice) != 'A' || toupper(choice) != 'D') // Default behaviour.
+        else                            // Default behaviour.
             ascending = true;
 
         ascending == true ? printf("\nAscending") : printf("\nDescending");
