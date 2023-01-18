@@ -20,10 +20,11 @@ int main(int argc, char* argv[])
     const int CHAR_MAX = 127;   // Max char to print
     const int MAX_COLS = 8;     // Maximum columns to allow
 
-    int cols = 0;       // columns for user input
-    int min_char = 0;   // min range for char codes
-    int max_char = 0;   // max range for char codes
-    int np = 0;         // non-printable char counter
+    // INITIALIZE VARIABLES
+    int cols = 0;           // columns for user input
+    int min_char = 0;       // min range for char codes
+    int max_char = 0;       // max range for char codes
+    int np = 0;             // non-printable char counter
 
     bool repeat = true;     // main repeat
     bool ascending = true;  // ascending or descending order
@@ -103,9 +104,9 @@ int main(int argc, char* argv[])
 
         // PRINT RESULTS OF NON-PRINTABLE CHARS
         printf("\n\nThere were %d non printable and %d printable chars out of a total of %d character codes.\n",
-                np,                         // no. of non printable chars
-                (max_char-min_char+1)-np,   // no. of printable chars, +1 for zero inclusive counting
-                max_char - min_char + 1);   // no. of total character codes scanned, +1 for zero inclusive counting
+            np,                         // no. of non printable chars
+            (max_char-min_char+1)-np,   // no. of printable chars, +1 for zero inclusive counting
+            max_char - min_char + 1);   // no. of total character codes scanned, +1 for zero inclusive counting
 
         // USER DECIDES WHETHER TO REPEAT THE PROGRAM
         printf("\nAgain ? (y/n): ");            // Repeat program?
@@ -113,10 +114,10 @@ int main(int argc, char* argv[])
           printf("\nFailed to read character!\n");
 
         // PROGRAM BREAKS LOOP AND QUITS OR RESETS VARS AND REPEATS
-        if (choice == 'n' || choice == 'N')         // Quit.
-            repeat = false;                         // Breaks main loop.
-        else if (choice == 'y' || choice == 'Y')    // Repeat.
+        if (toupper(choice) == 'Y')    // Repeat.
             max_char = 0, min_char = 0, cols = 0, np = 0, choice = 'n';  // Reset values for another run.
+        else                           // Quit.
+            repeat = false;            // Breaks main loop.
     };
     
     return 0;
