@@ -7,6 +7,7 @@
 // REFACTOR2: Main program loops until user quits
 // REFACTOR3: Count and report how many printable and non-printable chars.
 // Edit: Improved functions of refactor3.
+// REFACTOR4: Display codes in ascending or descending order.
 
 #include <stdio.h>
 #include <ctype.h>      // isgraph()
