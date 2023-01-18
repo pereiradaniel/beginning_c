@@ -65,8 +65,12 @@ int main(int argc, char* argv[])
         if (scanf(" %c", &choice) != 1)
           printf("\nFailed to read character!\n");
         
-        if(choice == 'd' || choice == 'D') // D for descending, any other key for ascending (default)
+        if(toupper(choice) == 'D') // D for descending, any other key for ascending (default)
             ascending = false;
+        else if(toupper(choice) == 'A')
+            ascending = true;
+        else if(toupper(choice) != 'A' || toupper(choice) != 'D')
+            ascending = true;
 
         ascending == true ? printf("\nAscending\n") : printf("\nDescending");
         printf(" order selected.\n");
@@ -83,7 +87,7 @@ int main(int argc, char* argv[])
         if (choice == 'n' || choice == 'N')
             repeat = false;                     // Breaks main loop.
         else if (choice == 'y' || choice == 'Y')
-            max_char = 0, min_char = 0, cols = 0;  // Reset values for another run.
+            max_char = 0, min_char = 0, cols = 0, choice = 'n';  // Reset values for another run.
     };
     
     return 0;
