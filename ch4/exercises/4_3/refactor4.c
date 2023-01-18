@@ -13,25 +13,29 @@
 #include <ctype.h>      // isgraph()
 #include <stdbool.h>    // boolean
 
-void decodeChar(const char* c); // Prints a label for non printable characters.
-void ascendingOrder(const int min_char,const int max_char, const int cols);
-void descendingOrder(const int min_char,const int max_char, const int cols);
+void decodeChar(const char* c);
+int ascendingOrder(const int min_char,const int max_char, const int cols);
+int descendingOrder(const int min_char,const int max_char, const int cols);
+void endMessage(const int non_printable, const int printable, const  int total);
 
 int main(int argc, char* argv[])
 {
-    const int CHAR_MAX = 127;   // Maximum columns to allow
-    const int MAX_COLS = 8;     // Max char to print
+    const int CHAR_MAX = 127;   // Max char to print
+    const int MAX_COLS = 8;     // Maximum columns to allow
 
     int cols = 0;       // columns for user input
     int min_char = 0;   // min range for char codes
     int max_char = 0;   // max range for char codes
+    int np = 0;         // non-printable char counter
 
-    bool repeat = true; // main repeat
-    bool ascending = true;
-    char choice = 'n';  // user choice
+    bool repeat = true;     // main repeat
+    bool ascending = true;  // ascending or descending order
+    
+    char choice = 'n';      // user choice
 
     while (repeat == true) // Main program loop
     {
+        // USER INPUTS NUMBER OF COLUMNS
         while (cols <= 0 || cols > MAX_COLS)    // Loop until user input is within bounds.
         {
             printf("\nThis program will output printable characters for code values from 0-%d.", CHAR_MAX);
@@ -44,6 +48,7 @@ int main(int argc, char* argv[])
                 printf("\n%d is out of bounds! Enter a number from 1-%d.", cols, MAX_COLS);
         }
         
+        // USER SPECIFIES RANGE OF CHARACTER CODES
         while ((max_char <= 0 && min_char <= 0) || min_char >= max_char || max_char > CHAR_MAX || min_char == max_char || min_char < 0)    // Loop until input is valid.
         {
             printf("\nWhat range of char codes do you want? (Range 0-%d, example input \"0 %d\"): ", CHAR_MAX, CHAR_MAX);
@@ -61,39 +66,46 @@ int main(int argc, char* argv[])
                 printf("\n%d is equal to %d! Minimum number must be less than maximum.", min_char, max_char);
         }
 
+        // USER SELECTS ASCENDING OR DESCENDING ORDER FOR PRINTOUT
         printf("\nOutput codes in ascending or descending order? (A/D)");
         if (scanf(" %c", &choice) != 1)
           printf("\nFailed to read character!\n");
         
-        if(toupper(choice) == 'D') // D for descending, any other key for ascending (default)
+        if(toupper(choice) == 'D')      // Descending order selected.
             ascending = false;
-        else if(toupper(choice) == 'A')
+        else if(toupper(choice) == 'A') // Ascending order selected.
             ascending = true;
-        else if(toupper(choice) != 'A' || toupper(choice) != 'D')
+        else if(toupper(choice) != 'A' || toupper(choice) != 'D') // Default behaviour.
             ascending = true;
 
         ascending == true ? printf("\nAscending\n") : printf("\nDescending");
         printf(" order selected.\n");
 
+        // PRINT OUT CHAR/CODE TABLE ACCORDING TO USER PREFERENCES
         if (ascending == true)
-            ascendingOrder(min_char, max_char, cols);
+            np = ascendingOrder(min_char, max_char, cols);
         else
-            descendingOrder(min_char, max_char, cols);
-               
+            np = descendingOrder(min_char, max_char, cols);
+
+        // PRINT RESULTS OF NON-PRINTABLE CHARS
+        endMessage(np, (max_char-min_char+1)-np, max_char - min_char + 1);
+
+        // USER DECIDES WHETHER TO REPEAT THE PROGRAM
         printf("\nAgain ? (y/n): ");            // Repeat program?
         if (scanf(" %c", &choice) != 1)
           printf("\nFailed to read character!\n");
 
-        if (choice == 'n' || choice == 'N')
-            repeat = false;                     // Breaks main loop.
-        else if (choice == 'y' || choice == 'Y')
-            max_char = 0, min_char = 0, cols = 0, choice = 'n';  // Reset values for another run.
+        // PROGRAM BREAKS LOOP AND QUITS OR RESETS VARS AND REPEATS
+        if (choice == 'n' || choice == 'N')         // Quit.
+            repeat = false;                         // Breaks main loop.
+        else if (choice == 'y' || choice == 'Y')    // Repeat.
+            max_char = 0, min_char = 0, cols = 0, np = 0, choice = 'n';  // Reset values for another run.
     };
     
     return 0;
 }
 
-void endMessage(int non_printable, int printable, int total)
+void endMessage(const int non_printable, const int printable, const  int total) // Prints end message for table.
 {
     printf("\n\nThere were %d non printable and %d printable chars out of a total of %d character codes.\n",
                 non_printable,              // no. of non printable chars
@@ -101,9 +113,10 @@ void endMessage(int non_printable, int printable, int total)
                 total);                     // no. of total character codes scanned, +1 for zero inclusive counting
 }
 
-void descendingOrder(const int min_char,const int max_char, const int cols)
+int descendingOrder(const int min_char,const int max_char, const int cols) // Prints table in descending order.
 {
-    for(int i = max_char, j = cols, np = 0; i >= min_char; --i, --j)      // Print table.
+    int np = 0;
+    for(int i = max_char, j = cols; i >= min_char; --i, --j)      // Print table.
         {
             if (j%cols==0 && i != max_char)
                 printf("\n");                   // Print new line if num of cols reached.
@@ -117,15 +130,14 @@ void descendingOrder(const int min_char,const int max_char, const int cols)
                 decodeChar((char*)(&i));        // Returns label for non-printable character.
                 ++np;                           // Count a non-printable char.
             }
-
-            if (i == min_char)                  // If finished table, print this message.
-                endMessage(np, (max_char-min_char+1)-np, max_char - min_char + 1);
-        }    
+        }
+        return np;
 }
 
-void ascendingOrder(const int min_char,const int max_char, const int cols)
+int ascendingOrder(const int min_char,const int max_char, const int cols) // Prints table in ascending order.
 {
-    for(int i = min_char, j = 0, np = 0; i <= max_char; ++i, ++j)      // Print table.
+    int np = 0;
+    for(int i = min_char, j = 0; i <= max_char; ++i, ++j)      // Print table.
         {
             if (j%cols==0)
                 printf("\n");                   // Print new line if num of cols reached.
@@ -139,10 +151,8 @@ void ascendingOrder(const int min_char,const int max_char, const int cols)
                 decodeChar((char*)(&i));        // Returns label for non-printable character.
                 ++np;                           // Count a non-printable char.
             }
-
-            if (i == max_char)                  // If finished table, print this message.
-                endMessage(np, (max_char-min_char+1)-np, max_char - min_char + 1);
         }
+    return np;
 }
 
 void decodeChar(const char* c) // Prints a label for non printable characters.
