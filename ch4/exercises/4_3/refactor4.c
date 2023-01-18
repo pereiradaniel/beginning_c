@@ -88,7 +88,7 @@ int main(int argc, char* argv[])
             )
         {
             if (j%cols==0)
-                printf("\n");
+                printf("\n");                   // If at end of row, print new line.
 
             printf("  %4d",i);                  // Print code number.
             
