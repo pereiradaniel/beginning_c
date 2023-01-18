@@ -40,7 +40,7 @@ int main(int argc, char* argv[])
                 printf("\n%d is out of bounds! Enter a number from 1-%d.", cols, MAX_COLS);
         }
         
-        while ((max_char <= 0 && min_char <= 0) || min_char >= max_char || max_char > CHAR_MAX || min_char == max_char)    // Loop until input is valid.
+        while ((max_char <= 0 && min_char <= 0) || min_char >= max_char || max_char > CHAR_MAX || min_char == max_char || min_char < 0)    // Loop until input is valid.
         {
             printf("\nWhat range of char codes do you want? (Range 0-%d, example input \"0 %d\"): ", CHAR_MAX, CHAR_MAX);
             if (scanf(" %d %d", &min_char, &max_char) != 2)
