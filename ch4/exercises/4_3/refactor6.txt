@@ -1,10 +1,10 @@
-==187== Memcheck, a memory error detector
-==187== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==187== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
-==187== Command: ./refactor6
-==187==
+==85== Memcheck, a memory error detector
+==85== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.   
+==85== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
+==85== Command: ./refactor6
+==85==
 
-This program will output printable characters for code values from 0-127.
+This program will output printable characters for code values from 0-127.      
 How many columns of character/code pairs per row would you like to see? (1-8): 4
 
 What range of char codes do you want? (Range 0-127, example input "0 127"): 60 70
@@ -22,28 +22,28 @@ There were 0 non printable and 11 printable chars out of a total of 11 character
 Again ? (y/n): y
 
 This program will output printable characters for code values from 0-127.
-How many columns of character/code pairs per row would you like to see? (1-8): 4
+How many columns of character/code pairs per row would you like to see? (1-8): 3
 
-What range of char codes do you want? (Range 0-127, example input "0 127"): 80 90
+What range of char codes do you want? (Range 0-127, example input "0 127"): 60 70
 
 Output codes in ascending or descending order? (A/D)a
 
 Ascending order selected.
 
-    80               P    81               Q    82               R    83               S
-    84               T    85               U    86               V    87               W
-    88               X    89               Y    90               Z
+    60               <    61               =    62               >
+    63               ?    64               @    65               A
+    66               B    67               C    68               D
+    69               E    70               F
 
 There were 0 non printable and 11 printable chars out of a total of 11 character codes.
 
 Again ? (y/n): n
-==187== 
-==187== HEAP SUMMARY:
-==187==     in use at exit: 0 bytes in 0 blocks
-==187==   total heap usage: 2 allocs, 2 frees, 2,048 bytes allocated
-==187==
-==187== All heap blocks were freed -- no leaks are possible
-==187==
-==187== For lists of detected and suppressed errors, rerun with: -s
-==187== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
-daniel@DESKTOP-4N1J6GC:/mnt/c/Users/perei/source/repos/beginning_c/ch4/
+==85== 
+==85== HEAP SUMMARY:
+==85==     in use at exit: 0 bytes in 0 blocks
+==85==   total heap usage: 2 allocs, 2 frees, 2,048 bytes allocated
+==85==
+==85== All heap blocks were freed -- no leaks are possible
+==85==
+==85== For lists of detected and suppressed errors, rerun with: -s
+==85== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)

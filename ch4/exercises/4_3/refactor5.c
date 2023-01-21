@@ -85,10 +85,10 @@ int main(int argc, char* argv[])
             if ((ascending ? j : cols - j)%cols==0)
                 printf("\n");                   // If at end of row, print new line.
 
-            printf("  %4d", (ascending ? i : max_char - i));                  // Print code number.
+            printf("  %4d", (ascending ? i : max_char - i + min_char));                  // Print code number.
             
-            if (isgraph((ascending ? i : max_char - i)))
-                printf("               %c", (ascending ? i : max_char - i));  // Prints printable character.
+            if (isgraph((ascending ? i : max_char - i + min_char)))
+                printf("               %c", (ascending ? i : max_char - i + min_char));  // Prints printable character.
             else
             {
                 decodeChar((char*)(&i));        // Prints a label for non-printable character.
