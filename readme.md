@@ -1,5 +1,7 @@
 # BEGINNING C
 
+**NOTICE: I quit this project to learn some Java and C++ and left it alone because there is a newer version of this book.**
+
 > This repo is a product of my desire to review, and become stronger in the C language after running through an Arduino kit.
 
 ## What is in this repo?
